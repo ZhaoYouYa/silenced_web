@@ -1,4 +1,4 @@
-./SilencedWebServer/.vs
-./SilencedWebServer/.vscode
+SilencedWebServer/.vs
+SilencedWebServer/.vscode
 **/bin
 **/obj
