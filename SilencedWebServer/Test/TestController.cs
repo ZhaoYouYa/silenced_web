@@ -3,10 +3,24 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sys_Common;
+using Sys_Pgsql;
 
 public class TestController : ControllerBase
 {
-    public static int Index { get; set; }
+    public readonly PgContext _db;
+
+    public TestController(PgContext db_)
+    {
+        _db = db_;
+    }
+
+    [Route("Silenced2")]
+    [HttpGet]
+    public IActionResult Silenced2()
+    {
+        var item = from i in _db.dpt_choice select i;
+        return Ok(item.ToArray());
+    }
 
     [Route("test")]
     [HttpGet]

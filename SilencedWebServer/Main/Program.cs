@@ -1,9 +1,20 @@
 
-
+using Sys_Pgsql;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+PgContext pgsql = new ("Host=212.129.223.183;Port=5433;Username=postgres;Password=Yuanmo520...;Database=Silenced2;");
+
+builder.Services.AddSingleton(pgsql);
+
+//builder.Services.AddDbContext<PgContext>(options =>
+//{
+//	options.UseNpgsql("Host=212.129.223.183;Port=5433;Username=postgres;Password=Yuanmo520...;Database=Silenced2;");
+//});
 
 builder.Services.AddStackExchangeRedisCache(
 	options =>

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sys_Common\Sys_Common.csproj" />
+    <ProjectReference Include="..\Sys_Pgsql\Sys_Pgsql.csproj" />
   </ItemGroup>
 
 </Project>
